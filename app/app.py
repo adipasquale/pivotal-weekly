@@ -128,6 +128,6 @@ def home():
 
 if __name__ == '__main__':
 
-  app.run()
+  app.run(debug=("DEBUG" in os.environ))
 
   # PROJECT_ID=764125 API_TOKEN=e66cf99aab8b9d69134344399d4eec1f python app/app.py
