@@ -1,0 +1,5 @@
+{% for story in stories %}
+  <div class='story span-days-{{ story.get("span_days", 0) }} {{ story["current_state"] }}'>
+    {{ story["name"] }}
+  </div>
+{% endfor %}

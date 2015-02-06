@@ -1,0 +1,40 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+  <div class="wrapper">
+  <div class="column daynames">
+    <div class="cell username">&nbsp;</div>
+    <div class="cell previousweek">Before</div>
+    {% for day_name in days %}
+      <div class="cell">{{day_name|safe}}</div>
+    {% endfor %}
+    <div class="cell nextweek">after</div>
+  </div>
+
+  <div class="columns">
+  {% for user_id, user_name in users.iteritems() %}
+    <div class="column user">
+      <div class="cell username">{{ user_name }}</div>
+      <div class="cell previousweek">
+        {{ render_template("stories.html", stories=stories[user_id]["previous_week"])|safe }}
+      </div>
+      {% for i in range(0, 7) %}
+        <div class="cell">
+          {{ render_template("stories.html", stories=stories[user_id]["days"][i])|safe }}
+        </div>
+      {% endfor %}
+      <div class="cell nextweek"></div>
+    </div>
+  {% endfor %}
+
+  </div>
+  </div>
+</body>
+
+
+<script type="text/javascript">
+  console.log({{stories|tojson}});
+</script>
