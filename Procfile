@@ -1,1 +1,1 @@
-web: uwsgi uwsgi-heroku.ini
+web: uwsgi --catch-exceptions uwsgi-heroku.ini
