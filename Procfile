@@ -1,1 +1,1 @@
-web: python app/app.py
+web: uwsgi --catch-exceptions uwsgi-heroku.ini
